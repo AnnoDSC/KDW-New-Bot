@@ -23,7 +23,7 @@ class Del_Warns(discord.ui.Select):
     
     async def callback(self, ctx: discord.Interaction):
         warns.del_warn(self.user.id, self.values[0])
-        ctx.response.send_message(embed=discord.Embed(
+        await ctx.response.send_message(embed=discord.Embed(
                 title="Warn System",
                 description=f"Der Nutzer {self.user.mention} hat einen Warn verloren",
                 colour=config.BOT_EMBED_COLOUR

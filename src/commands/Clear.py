@@ -14,15 +14,15 @@ class Clear(commands.Cog):
     @app_commands.describe(anzahl="Die Anzahl der Messages die Geloecht werden sollen Nix = 100")
     @app_commands.checks.has_permissions(manage_messages=True)
     async def _clear(self, ctx: discord.Interaction, anzahl: int = None):
-        if ctx.user.guild_permissions.manage_messages:
-            if anzahl == None: anzahl = 100
+        if anzahl == None: 
+            anzahl = 100
 
-            await ctx.channel.purge(limit=anzahl)
-            await ctx.response.send_message(embed=discord.Embed(
-                title="Clear System",
-                description=f"Ich habe {anzahl} Nachichten geloecht",
-                colour=discord.Color.green()
-            ))
+        await ctx.channel.purge(limit=anzahl)
+        await ctx.response.send_message(embed=discord.Embed(
+            title="Clear System",
+            description=f"Ich habe {anzahl} Nachichten geloecht",
+            colour=discord.Color.green()
+        ))
     
     @_clear.error
     async def _clear_error(self, ctx: discord.Interaction, error):

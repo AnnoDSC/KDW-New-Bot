@@ -23,6 +23,10 @@ class Bot(commands.Bot):
             if file.endswith(".py"):
                 await self.load_extension(f'src.commands.{file[:-3]}')
                 print(file[:-3] + " Loaded ✅")
+        for file in os.listdir("./src/tasks"):
+            if file.endswith(".py"):
+                await self.load_extension(f'src.tasks.{file[:-3]}')
+                print(file[:-3] + " Loaded ✅")
         print("----------------------")
         self.add_view(Spielsuche_view())
         await self.tree.sync()

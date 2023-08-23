@@ -2,7 +2,6 @@ import sys
 sys.dont_write_bytecode = True
 
 import discord, config
-from main import Bot
 from discord.ext import commands
 from discord import app_commands
 from src.interface.dropdown.Hilfemenu_dropdown import Spielsuche_view
@@ -28,7 +27,6 @@ class HilfeMenu(commands.Cog):
         ).add_field(name="Du suchst nach SOTF News und Patchnotes? 🚨", value="Wähle im Menü ´´´Neuigkeiten´´´ aus um Nichts mehr zu Verpassen!", inline=False
         ).set_image(url="https://cdn.discordapp.com/attachments/1029833877402951710/1087113531796750526/Unbenannt-17.png"
         ).set_thumbnail(url="https://cdn.discordapp.com/attachments/1029833877402951710/1087104954067603578/test_5555.png"), view=Spielsuche_view())
-        self.bot.db
 
     @_set_hilfemenu.error
     async def _set_hilfemenu_error(self, ctx: discord.Interaction, error):
